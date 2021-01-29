@@ -1,0 +1,67 @@
+% ----------------------------------------------------------------------
+\begin{frame}[fragile,shrink=34]{Meta encoding, or ASP in ASP}
+\bigskip
+\begin{lstlisting}
+conjunction(B) :- literal_tuple(B),
+        hold(L) : literal_tuple(B, L), L > 0;
+    not hold(L) : literal_tuple(B,-L), L > 0.
+
+body(normal(B)) :- rule(_,normal(B)), conjunction(B).
+body(sum(B,G))  :- rule(_,sum(B,G)),
+    #sum { W,L :     hold(L), weighted_literal_tuple(B, L,W), L > 0 ;
+           W,L : not hold(L), weighted_literal_tuple(B,-L,W), L > 0 } >= G.
+
+  hold(A) : atom_tuple(H,A)   :- rule(disjunction(H),B), body(B).
+{ hold(A) : atom_tuple(H,A) } :- rule(     choice(H),B), body(B).
+
+#show.
+#show T : output(T,B), conjunction(B).
+\end{lstlisting}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{An example, running}
+  \begin{itemize}
+  \item \structure{Logic program} \texttt{ezy.lp}
+\begin{lstlisting}
+{a}.
+b :- a.
+c :- not a.
+\end{lstlisting}
+  \item<2-> \structure{Running}
+\begin{lstlisting}[basicstyle=\small\ttfamily]
+$ clingo ezy.lp 0
+clingo version 5.5.0
+Reading from ezy.lp
+Solving...
+Answer: 1
+c
+Answer: 2
+a b
+SATISFIABLE
+\end{lstlisting}
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{An example, running reified}
+  \begin{itemize}
+  \item \structure{Logic program} \texttt{ezy.lp}
+\begin{lstlisting}
+{a}.
+b :- a.
+c :- not a.
+\end{lstlisting}
+  \item<2-> \structure{Running reified}
+\begin{lstlisting}[basicstyle=\small\ttfamily]
+$ clingo --output=reify ezy.lp | clingo - meta.lp 0
+clingo version 5.5.0
+Reading from - ...
+Solving...
+Answer: 1
+c
+Answer: 2
+a b
+SATISFIABLE
+\end{lstlisting}
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
