@@ -2,11 +2,7 @@
 \begin{frame}[fragile]{An example}
   \begin{itemize}
   \item \structure{Logic program} \texttt{ezy.lp}
-\begin{lstlisting}
-{a}.
-b :- a.
-c :- not a.
-\end{lstlisting}
+    \lstinputlisting{examples/ezy.lp}
   \item<2-> \structure{Implicit statements}
 \begin{lstlisting}
 #show a.
@@ -49,37 +45,26 @@ output(c,4).
 \end{frame}
 % ----------------------------------------------------------------------
 \begin{frame}[fragile]{An example, again}
-\bigskip
-\begin{lstlisting}
-  {a}.
-  b :- a.
-  c :- not a.
-
-  #show a.
-  #show b.
-  #show c.
-\end{lstlisting}
+  \bigskip
+  \begin{itemize}
+  \item []
+    \lstinputlisting{examples/ezy.lp}
+  \item []
+    \begin{lstlisting}
+#show a.
+#show b.
+#show c.
+    \end{lstlisting}
+  \end{itemize}
 \end{frame}
 % ----------------------------------------------------------------------
 \begin{frame}[fragile,shrink=28]{An example, reified again}
-\bigskip
-\begin{lstlisting}
-rule(choice(0),normal(0)).      atom_tuple(0).   literal_tuple(0).
-                                atom_tuple(0,1).
-
-rule(disjunction(1),normal(1)). atom_tuple(1).   literal_tuple(1).
-                                atom_tuple(1,2). literal_tuple(1,-1).
-
-rule(disjunction(2),normal(2)). atom_tuple(2).   literal_tuple(2).
-                                atom_tuple(2,3). literal_tuple(2,1).
-
-output(a,2).
-
-output(b,3).                                     literal_tuple(3).
-                                                 literal_tuple(3,3).
-
-output(c,4).                                     literal_tuple(4).
-                                                 literal_tuple(4,2).
-\end{lstlisting}
+  \bigskip
+  \lstinputlisting{examples/ezy.rlp}
 \end{frame}
 % ----------------------------------------------------------------------
+%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:

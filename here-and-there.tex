@@ -1,9 +1,24 @@
 % ----------------------------------------------------------------------
-\begin{frame}{Computing supported models of logic programs}
+\begin{frame}[fragile,shrink]{Computing here-and-there models}
+  \bigskip
   \begin{itemize}
-  \item  Checking program equivalence
-    \medskip
+  \item \structure{Options}
+    \begin{itemize}\normalsize
+    \item \texttt{option = 1} \ here-and-there models
+    \item \texttt{option = 2} \ here-and-there models minimizing ``here models''
+    \item \texttt{option = 3} \ equilibrium models
+    \end{itemize}
   \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile]{Computing here-and-there models, one}
+  \bigskip
+  \lstinputlisting[linerange={1-13}]{encodings/ht-models.lp}
+\end{frame}
+% ----------------------------------------------------------------------
+\begin{frame}[fragile,shrink=40]{Computing here-and-there models, two}
+  \bigskip
+  \lstinputlisting[linerange={14-28}]{encodings/ht-models.lp}
 \end{frame}
 % ----------------------------------------------------------------------
 %
