@@ -1,0 +1,8 @@
+asp 1 0 0|\label{aspif:ezy:header}|
+1 1 1 1 0 0|\label{aspif:ezy:rule:one}|
+1 0 1 2 0 1 1|\label{aspif:ezy:rule:two}|
+1 0 1 3 0 1 -1|\label{aspif:ezy:rule:tri}|
+4 1 a 1 1|\label{aspif:ezy:output:one}|
+4 1 b 1 2|\label{aspif:ezy:output:two}|
+4 1 c 1 3|\label{aspif:ezy:output:tri}|
+0
