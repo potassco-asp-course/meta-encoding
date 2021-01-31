@@ -1,4 +1,28 @@
 % ----------------------------------------------------------------------
+\begin{frame}[fragile]{Computing diverse models}
+  \bigskip
+  \begin{itemize}
+  \item<1-> \structure{Goal} \ Compute several diverse stable models of a logic program
+    \smallskip
+  \item<2-> \structure{Idea} \ Consider several reified stable models within one
+    \begin{itemize}\normalsize
+    \item parameter \lstinline{m} limits the number of reified stable models
+    \item use \lstinline{hold(L,I)} to represent \lstinline{m} models, viz.\ \lstinline{I=1..m}
+    \end{itemize}
+    \bigskip
+  \item<3-> \structure{Options}
+    \begin{itemize}
+    \item{\normalsize \lstinline{option=1} \ \lstinline{k}-diverse stable models}
+      \par\smallskip
+      Hamming distance between each pair of the \lstinline{m} stable models is greater or equal than \lstinline{k}
+      \smallskip
+    \item{\normalsize \lstinline{option=2} \ most-diverse stable models}
+      \par\smallskip
+      \lstinline{m} stable models maximize the sum of the Hamming distances between each pair of stable models
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+% ----------------------------------------------------------------------
 \begin{frame}[fragile,shrink=34]{Computing diverse models}
   \bigskip
   \lstinputlisting{encodings/diverse.lp}
