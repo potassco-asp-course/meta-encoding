@@ -2,7 +2,18 @@
 \begin{frame}[fragile,shrink]{Computing here-and-there models}
   \bigskip
   \begin{itemize}
-  \item \structure{Options}
+  \item<1-> An {interpretation} is a pair \tuple{H,T} of sets of atoms with $H \subseteq T$
+    \begin{itemize}\normalsize
+    \item $H$ represents provably true atoms
+    \item $T$ represents possibly true atoms
+    \item atoms not in $T$ are false
+    \end{itemize}
+  \item<2-> \structure{Note} \ Stable models are specific here-and-there models,
+    \par called \alert<2>{equilibrium models}
+    \bigskip
+  \item<3-> \structure{Note} \ Use \lstinline{hold(L,h)} and \lstinline{hold(L,h)} to capture $H$ and $T$
+    \medskip
+  \item<4-> \structure{Options}
     \begin{itemize}\normalsize
     \item \texttt{option = 1} \ here-and-there models
     \item \texttt{option = 2} \ here-and-there models minimizing ``here models''
